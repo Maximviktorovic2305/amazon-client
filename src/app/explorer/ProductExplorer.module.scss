@@ -1,0 +1,21 @@
+.explorer {
+   @apply flex;
+
+   > aside {
+      @apply w-0 whitespace-nowrap opacity-0;
+      transition: width 300ms ease-out, opacity 300ms ease-out;
+   }
+
+   > section {
+      @apply w-full;
+      transition: width 300ms ease-out;
+   }
+
+   &.filterOpened {
+      @apply gap-5;
+
+      > aside {
+         @apply w-2/6 opacity-100;
+      }
+   }
+}
