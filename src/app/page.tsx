@@ -1,4 +1,4 @@
-import Home from "@/app/Home";
+import Home from "@/app/(castomer)/Home";
 import ProductService from "@/services/product/product.service";
 import type { Metadata } from "next";
 

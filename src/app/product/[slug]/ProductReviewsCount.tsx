@@ -17,7 +17,7 @@ export default function ProductReviewsCount({ product }: IProductReviews) {
       <div>
          <ProductRating product={product} />   
          <div>
-            <Link className="opacity-50 font-semibold text-sm cursor-pointer"   
+            <Link className="opacity-50 font-semibold text-sm cursor-pointer text-black"   
             to='reviews'   
             smooth={true}   
             offset={-50}   

@@ -4,14 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import AddToCartButton from "./AddToCartButton";
-import ProductRating from "./ProductRating";
 import FavoriteButton from "./FavoriteButton";
-
+import ProductRating from "./ProductRating";
 
 const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
    return (
       <div className="animate-scaleIn">
-         <div className="bg-white rounded-xl relative overflow-hidden">
+         <div className="rounded-xl relative overflow-hidden bg-[#1d232a]">
             <div className="absolute top-2 right-3 z-10">
                <FavoriteButton productId={product.id} />
                <AddToCartButton product={product} />
@@ -21,8 +20,8 @@ const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
                   src={product.images[0]}
                   alt={product.name}
                   width={250}
-                  height={250}   
-                  className="mx-auto"
+                  height={250}
+                  className="mx-auto hover:scale-105 duration-500 bg-[#1d232a]"
                />
             </Link>
          </div>
