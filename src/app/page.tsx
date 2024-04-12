@@ -1,12 +1,5 @@
 import Home from "@/app/(castomer)/Home";
 import ProductService from "@/services/product/product.service";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-   description: "Free shipping of many items",
-};
-
-export const revalidate = 60;
 
 async function getProducts() {
    const data = await ProductService.getAll({

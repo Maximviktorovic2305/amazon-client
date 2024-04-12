@@ -3,40 +3,12 @@ import "@/assets/styles/globals.scss";
 import Providers from "@/providers/Providers";
 import type { PropsWithChildren } from "react";
 
-import { getSiteUrl } from "@/config/url.config";
-import { SITE_NAME } from "@/constants/seo.constants";
-import type { Metadata } from "next";
-import { Exo_2 } from "next/font/google";
 import Header from "./layout/header/Header";
 import SideBar from "./layout/sidebar/SideBar";
 
-export const metadata: Metadata = {
-   icons: {
-      icon: "favicon.svg",
-   },
-   title: {
-      absolute: SITE_NAME,
-      template: `%s | ${SITE_NAME}`,
-   },
-   metadataBase: new URL(getSiteUrl()),
-   openGraph: {
-      type: "website",
-      siteName: SITE_NAME,
-      emails: ["max@mail.ru"],
-   },
-};
-
-const exo = Exo_2({
-   weight: ["400", "500", "600", "700"],
-   subsets: ["latin", "cyrillic-ext"],
-   display: "swap",
-   style: ["normal"],
-   variable: "--font-exo",
-});
-
 export default function RootLayout({ children }: PropsWithChildren<unknown>) {
    return (
-      <html lang="en" className={exo.variable}>
+      <html lang="en">
          <body>
             <Providers>
                <div className="bg-secondary">

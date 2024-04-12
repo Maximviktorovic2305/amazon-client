@@ -1,9 +1,6 @@
 import ProductService from "@/services/product/product.service";
 import { IPageSlugParam, TypeParamSlug } from "@/types/page-params";
-import type { Metadata } from "next";
 import Product from "./Product";
-
-export const revalidate = 60;
 
 export async function generateStaticParams() {
    const response = await ProductService.getAll();
@@ -27,22 +24,6 @@ async function getProduct(params: TypeParamSlug) {
    return {
       product,
       similarProducts,
-   };
-}
-
-export async function generateMetadata({
-   params,
-}: IPageSlugParam): Promise<Metadata> {
-   const { product } = await getProduct(params);
-
-   return {
-      title: product.name,
-      description: product.description,
-      category: product.category.name,
-      openGraph: {
-         images: product?.images || [],
-         description: product.description,
-      },
    };
 }
 

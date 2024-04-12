@@ -3,26 +3,6 @@ import CategoryService from "@/services/category.service";
 import ProductService from "@/services/product/product.service";
 import { IPageSlugParam, TypeParamSlug } from "@/types/page-params";
 
-export const revalidate = 60;
-
-
-import type { Metadata } from 'next'
-
-export async function generateMetadata({
-  params,
-}: IPageSlugParam): Promise<Metadata> {
-  const { category, products } = await getProducts(params);   
-
-  return {
-    title: category.name,   
-    description: `Description about ${category.name}`,   
-    openGraph: {
-      images: products[0]?.images || [],   
-      description: `Description about ${category.name}`
-    }
-  }
-}
-
 export async function generateStaticParams() {
    const categories = await CategoryService.getAll();
 
@@ -53,7 +33,5 @@ async function getProducts(params: TypeParamSlug) {
 export default async function CategoryPage({ params }: IPageSlugParam) {
    const data = await getProducts(params);
 
-   return (
-         <Catalog products={data.products || []} title={data.category.name} />
-   );
+   return <Catalog products={data.products || []} title={data.category.name} />;
 }
