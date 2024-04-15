@@ -2,6 +2,12 @@ import ProductService from "@/services/product/product.service";
 import { IPageSlugParam, TypeParamSlug } from "@/types/page-params";
 import Product from "./Product";
 
+// export const dynamicParams = false
+// export const dynamicParams = true
+// export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-static'
+
+
 export async function generateStaticParams() {
    const response = await ProductService.getAll();
 

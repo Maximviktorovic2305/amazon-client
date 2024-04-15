@@ -3,6 +3,12 @@ import CategoryService from "@/services/category.service";
 import ProductService from "@/services/product/product.service";
 import { IPageSlugParam, TypeParamSlug } from "@/types/page-params";
 
+
+// export const dynamicParams = false
+// export const dynamicParams = true
+// export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-static'
+
 export async function generateStaticParams() {
    const categories = await CategoryService.getAll();
 
